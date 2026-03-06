@@ -1,0 +1,354 @@
+{
+    "presets": [
+        {
+            "presetName": "Training",
+            "startDelay": 0.0,
+            "durationMinutes": 1.0,
+            "transitionTrigger": {
+                "instanceID": 188390
+            },
+            "transitionDelaySeconds": 5.0,
+            "scriptsToActivate": [
+                {
+                    "instanceID": 234070
+                }
+            ],
+            "scriptsToDeactivate": [],
+            "objectsToActivate": [
+                {
+                    "instanceID": 188388
+                },
+                {
+                    "instanceID": 214596
+                },
+                {
+                    "instanceID": 187314
+                }
+            ],
+            "objectsToDeactivate": [],
+            "valuesToChange": [],
+            "onPresetStart": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            },
+            "onPresetEnd": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        },
+        {
+            "presetName": "PG CPNA",
+            "startDelay": 0.0,
+            "durationMinutes": 1.0,
+            "transitionTrigger": {
+                "instanceID": 195796
+            },
+            "transitionDelaySeconds": 30.0,
+            "scriptsToActivate": [],
+            "scriptsToDeactivate": [
+                {
+                    "instanceID": 234070
+                }
+            ],
+            "objectsToActivate": [
+                {
+                    "instanceID": 195790
+                },
+                {
+                    "instanceID": 195892
+                },
+                {
+                    "instanceID": 210876
+                }
+            ],
+            "objectsToDeactivate": [
+                {
+                    "instanceID": 188388
+                },
+                {
+                    "instanceID": 187314
+                }
+            ],
+            "valuesToChange": [],
+            "onPresetStart": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            },
+            "onPresetEnd": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        },
+        {
+            "presetName": "PG CPNCO",
+            "startDelay": 0.0,
+            "durationMinutes": 1.0,
+            "transitionTrigger": {
+                "instanceID": 188866
+            },
+            "transitionDelaySeconds": 30.0,
+            "scriptsToActivate": [],
+            "scriptsToDeactivate": [],
+            "objectsToActivate": [
+                {
+                    "instanceID": 188860
+                },
+                {
+                    "instanceID": 223986
+                }
+            ],
+            "objectsToDeactivate": [
+                {
+                    "instanceID": 195790
+                },
+                {
+                    "instanceID": 195892
+                },
+                {
+                    "instanceID": 216820
+                },
+                {
+                    "instanceID": 223952
+                }
+            ],
+            "valuesToChange": [],
+            "onPresetStart": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            },
+            "onPresetEnd": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        },
+        {
+            "presetName": "City CPNA",
+            "startDelay": 0.0,
+            "durationMinutes": 1.0,
+            "transitionTrigger": {
+                "instanceID": 193828
+            },
+            "transitionDelaySeconds": 30.0,
+            "scriptsToActivate": [],
+            "scriptsToDeactivate": [],
+            "objectsToActivate": [
+                {
+                    "instanceID": 193822
+                },
+                {
+                    "instanceID": 230912
+                },
+                {
+                    "instanceID": 231780
+                },
+                {
+                    "instanceID": 219946
+                },
+                {
+                    "instanceID": 191564
+                },
+                {
+                    "instanceID": 187314
+                },
+                {
+                    "instanceID": 232996
+                },
+                {
+                    "instanceID": 202736
+                }
+            ],
+            "objectsToDeactivate": [
+                {
+                    "instanceID": 188860
+                },
+                {
+                    "instanceID": 0
+                },
+                {
+                    "instanceID": 207828
+                }
+            ],
+            "valuesToChange": [],
+            "onPresetStart": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            },
+            "onPresetEnd": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        },
+        {
+            "presetName": "City CPNCO",
+            "startDelay": 0.0,
+            "durationMinutes": 1.0,
+            "transitionTrigger": {
+                "instanceID": 192374
+            },
+            "transitionDelaySeconds": 30.0,
+            "scriptsToActivate": [],
+            "scriptsToDeactivate": [],
+            "objectsToActivate": [
+                {
+                    "instanceID": 206114
+                },
+                {
+                    "instanceID": 192368
+                }
+            ],
+            "objectsToDeactivate": [
+                {
+                    "instanceID": 193822
+                },
+                {
+                    "instanceID": 202736
+                }
+            ],
+            "valuesToChange": [],
+            "onPresetStart": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            },
+            "onPresetEnd": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        },
+        {
+            "presetName": "Ultra city CPNA",
+            "startDelay": 0.0,
+            "durationMinutes": 1.0,
+            "transitionTrigger": {
+                "instanceID": 193828
+            },
+            "transitionDelaySeconds": 30.0,
+            "scriptsToActivate": [],
+            "scriptsToDeactivate": [],
+            "objectsToActivate": [
+                {
+                    "instanceID": 193822
+                },
+                {
+                    "instanceID": 231542
+                },
+                {
+                    "instanceID": 208304
+                },
+                {
+                    "instanceID": 236044
+                }
+            ],
+            "objectsToDeactivate": [
+                {
+                    "instanceID": 192368
+                },
+                {
+                    "instanceID": 225592
+                },
+                {
+                    "instanceID": 231780
+                }
+            ],
+            "valuesToChange": [],
+            "onPresetStart": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            },
+            "onPresetEnd": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        },
+        {
+            "presetName": "Ultra City CPNCO",
+            "startDelay": 0.0,
+            "durationMinutes": 1.0,
+            "transitionTrigger": {
+                "instanceID": 192748
+            },
+            "transitionDelaySeconds": 60.0,
+            "scriptsToActivate": [],
+            "scriptsToDeactivate": [],
+            "objectsToActivate": [
+                {
+                    "instanceID": 192368
+                },
+                {
+                    "instanceID": 228170
+                }
+            ],
+            "objectsToDeactivate": [
+                {
+                    "instanceID": 193822
+                },
+                {
+                    "instanceID": 236044
+                }
+            ],
+            "valuesToChange": [],
+            "onPresetStart": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            },
+            "onPresetEnd": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        },
+        {
+            "presetName": "Ending",
+            "startDelay": 0.0,
+            "durationMinutes": 1.0,
+            "transitionTrigger": {
+                "instanceID": 188390
+            },
+            "transitionDelaySeconds": 0.0,
+            "scriptsToActivate": [],
+            "scriptsToDeactivate": [],
+            "objectsToActivate": [
+                {
+                    "instanceID": 197268
+                },
+                {
+                    "instanceID": 188388
+                }
+            ],
+            "objectsToDeactivate": [
+                {
+                    "instanceID": 192742
+                },
+                {
+                    "instanceID": 199880
+                },
+                {
+                    "instanceID": 233390
+                }
+            ],
+            "valuesToChange": [],
+            "onPresetStart": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            },
+            "onPresetEnd": {
+                "m_PersistentCalls": {
+                    "m_Calls": []
+                }
+            }
+        }
+    ]
+}

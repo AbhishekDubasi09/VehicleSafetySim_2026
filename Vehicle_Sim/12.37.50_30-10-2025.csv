@@ -1,0 +1,10 @@
+Time,Throttle,Brake,Steering,Speed
+
+Event Log:
+Collision with object: roadblockmodel (3) at 27.870s
+Collision with object: Terrain at 27.880s
+Collision with object: Plane (7) at 27.880s
+Collision with object: roadblockmodel (3) at 54.410s
+Collision with object: Terrain at 55.480s
+Collision with object: Plane at 55.480s
+Collision with object: roadblockmodel (2) at 57.050s
