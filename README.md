@@ -80,6 +80,56 @@ git clone https://github.com/AbhishekDubasi09/VehicleSafetySim_2026.git
 
 Each session run writes a timestamped CSV to `Vehicle_Sim/Test Data/` for reviewing driver response and collision outcomes across scenario runs.
 
+## Driver Monitoring Extension (live gaze and hand tracking)
+
+An added module that runs **live gaze and hand monitoring of a simulated driver** in the ego vehicle. A synthetic driver follows a scripted 58 s drive with two pedestrian events. Virtual cameras in Unity stream to a Python program that analyses them in real time with MediaPipe and OpenCV, shows a dashboard, records annotated video and writes a results report.
+
+> **Simulation only.** The driver is a synthetic character seen by virtual cameras on one PC. There is no headset, no physical camera and no real participant. The reaction delays and glance times are scripted, so the results show that the measurement chain works; they are not findings about real drivers. The thresholds and calibration were tuned on earlier runs of the same simulation.
+
+![Dashboard during the hand-off-wheel hazard](docs/driver_monitoring/screenshots/02_hand_off_wheel_hazard.png)
+
+### What it does
+- Scripted driver: eye saccades, blinks, head turns, talking, steering, two-handed grip and a reach to the centre display.
+- Three virtual cameras (face, hands and wheel from the roof, outside view) streamed from Unity over a local TCP socket.
+- Live analysis: gaze zone, eyes-off-road time, glances, blink rate, PERCLOS, speech activity, hands on wheel, hazard flag when the hand leaves the wheel, hazard reaction time.
+- Live dashboard, recorded to video, followed by a results figure and HTML report.
+
+### Results of the recorded session
+| Measure | Result |
+|---|---|
+| Gaze yaw error against the simulator's true gaze | 1.17° mean, 2.82° RMSE (r = 0.985) |
+| Gaze zone correct (4 zones, steady frames) | 99.9 % of 718 frames |
+| Gaze reaction to pedestrian 1 / 2 (measured / true) | 0.568 s / 0.454 s and 1.307 s / 1.111 s |
+| Braking starts after pedestrian appears | 0.68 s and 1.37 s |
+| Blinks found / rendered | 17 / 17 |
+| Speech detection | precision 99 %, recall 97 % |
+| Both hands on the wheel | 91.5 % of frames; both display reaches found |
+| Pipeline | 19.4 fps, median 204 ms capture to analysed frame |
+
+Details, method and limits: [docs/driver_monitoring/PROJECT_DESCRIPTION.md](docs/driver_monitoring/PROJECT_DESCRIPTION.md).
+
+### Media (Git LFS)
+- [Dashboard recording, 1080p](docs/driver_monitoring/annotated_live.mp4)
+- [Dashboard window recording](docs/driver_monitoring/dashboard_window_recording.mp4)
+- [Face camera](docs/driver_monitoring/face_camera_raw.mp4) and [hand camera](docs/driver_monitoring/hand_camera_raw.mp4), unannotated
+- [Results figure](docs/driver_monitoring/session_report.png) and [HTML report](docs/driver_monitoring/session_report.html)
+- [Per-frame data and metrics](docs/driver_monitoring/data)
+
+### Code
+| Where | What |
+|---|---|
+| `Vehicle_Sim/Assets/Kevin_Driver/` | Unity (C#): driver behaviour, drive scenario, camera streamer, scene builder |
+| `driver_monitoring/` | Python: live analysis, dashboard, metrics, report, launch scripts |
+
+### Run it
+1. Obtain the driver model: export a Reallusion Character Creator 5 character as FBX into `Vehicle_Sim/Assets/Kevin_Driver/Kevin/Kevin.fbx` (it is not included, it is a licensed asset). Import the Reallusion CC/iC Unity tools and the URP17 shader package. The project already depends on `com.unity.nuget.newtonsoft-json`.
+2. Close any Unity editor that has `Vehicle_Sim` open, then build the scene once: `driver_monitoring\run_unity.ps1 -Method KevinSceneBuilder.Build`
+3. Set up Python once: `driver_monitoring\setup.ps1` (Python 3.11, MediaPipe models, font).
+4. Run a live session: `driver_monitoring\run_live.ps1`. The "Driver Monitoring - Live" window shows "Waiting for Unity..." until Unity has loaded (about a minute), then the dashboard starts. The session lasts about 60 s and records itself to `driver_monitoring\output\`.
+5. Build the report: `driver_monitoring\.venv\Scripts\python.exe driver_monitoring\report.py`
+
+Requires Windows, Unity 6000.0.60f1 and a GPU that can render three cameras.
+
 ## License
 
 Licensed under the [MIT License](LICENSE).

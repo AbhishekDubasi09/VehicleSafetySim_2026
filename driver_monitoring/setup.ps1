@@ -1,0 +1,13 @@
+# One-time setup: Python 3.11 virtual environment, MediaPipe model files and the JetBrains Mono font.
+$ErrorActionPreference = 'Stop'
+Set-Location $PSScriptRoot
+py -3.11 -m venv .venv
+& .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+
+New-Item -ItemType Directory -Force models, fonts | Out-Null
+curl.exe -sL -o models\face_landmarker.task https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task
+curl.exe -sL -o models\hand_landmarker.task https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task
+foreach ($w in 'Regular', 'Bold') {
+    curl.exe -sL -o "fonts\JetBrainsMono-$w.ttf" "https://github.com/JetBrains/JetBrainsMono/raw/master/fonts/ttf/JetBrainsMono-$w.ttf"
+}
+'Setup done.'
