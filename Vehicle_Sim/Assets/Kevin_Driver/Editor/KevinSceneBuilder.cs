@@ -99,7 +99,7 @@ public static class KevinSceneBuilder
 
         // Cameras (virtual): face (driver monitoring), hands/wheel, exterior scene view
         var camFace = MakeCam("DMS_FaceCamera", car.transform, new Vector3(-0.38f, 1.20f, 0.62f), new Vector3(-0.38f, 1.13f, -0.10f), 38f);
-        var camHands = MakeCam("DMS_HandCamera", car.transform, new Vector3(-0.32f, 1.36f, 0.00f), new Vector3(-0.20f, 0.95f, 0.44f), 50f);
+        var camHands = MakeCam("DMS_HandCamera", car.transform, new Vector3(-0.32f, 1.36f, 0.00f), new Vector3(-0.30f, 0.95f, 0.42f), 72f);
         var camScene = MakeCam("SceneCamera", car.transform, new Vector3(4.5f, 2.6f, -7.5f), new Vector3(-1.5f, 0.9f, 8f), 50f);
 
         // Pedestrian (Kate with a walking loop)
