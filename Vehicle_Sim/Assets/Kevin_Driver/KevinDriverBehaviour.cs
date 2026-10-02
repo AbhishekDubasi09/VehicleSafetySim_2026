@@ -29,6 +29,7 @@ namespace KevinDriver
         public float gripRollDeg = 30f;
         public int gripMode = 1;                   // 0: fingers inward, palm to the front   1: fingers forward, palm toward the wheel centre
         public float gripCurlScale = 1.4f;
+        public float leftCurlSign = 1f;           // the left hand bones are mirrored, so its fingers curl about the opposite axis
         public Vector3 gripCurl = new Vector3(38f, 48f, 32f);      // proximal / middle / distal curl (deg), stops at a natural closed grip
         public float thumbCurl = 25f;
         [Header("Jaw")]
@@ -291,7 +292,7 @@ namespace KevinDriver
                     if (finger == 0) curl *= idxCurl * 0.5f + (idxCurl < 1f ? 0f : 0.5f);      // index points, slightly bent
                     else if (reaching) curl *= Mathf.Lerp(1f, 0.30f + 0.12f * finger, sBlend);   // other fingers relax into a loose, graded curl (not a fist)
                 }
-                fingers[i].localRotation = fingers[i].localRotation * Quaternion.AngleAxis(curl, fingerAxis);
+                fingers[i].localRotation = fingers[i].localRotation * Quaternion.AngleAxis(curl * (left ? leftCurlSign : 1f), fingerAxis);
             }
         }
 

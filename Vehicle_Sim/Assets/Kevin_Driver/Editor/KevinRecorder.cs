@@ -117,6 +117,7 @@ public static class KevinRecorder
         string tt = Arg("-kdTouch", null); if (tt != null) { var p = tt.Split(','); beh.touchTargetCar = new Vector3(float.Parse(p[0]), float.Parse(p[1]), float.Parse(p[2])); }
         string gf = Arg("-kdGrip", null); if (gf != null) { var p = gf.Split(','); beh.gripAnchorOut = float.Parse(p[0]); beh.gripAnchorRear = float.Parse(p[1]); beh.gripFingerTilt = float.Parse(p[2]); if (p.Length > 3) beh.gripRollDeg = float.Parse(p[3]); if (p.Length > 4) beh.gripCurlScale = float.Parse(p[4]); if (p.Length > 5) beh.gripMode = int.Parse(p[5]); }
         string ang = Arg("-kdAngles", null); if (ang != null) { var p = ang.Split(','); beh.leftHandAngleDeg = float.Parse(p[0]); beh.rightHandAngleDeg = float.Parse(p[1]); }
+        string lcs = Arg("-kdLeftSign", null); if (lcs != null) beh.leftCurlSign = float.Parse(lcs);
         string gc = Arg("-kdGripCurl", null); if (gc != null) { var p = gc.Split(','); beh.gripCurl = new Vector3(float.Parse(p[0]), float.Parse(p[1]), float.Parse(p[2])); }
         string cp = Arg("-kdHandCam", null);
         if (cp != null) { var p = cp.Split(','); st.cams[1].transform.position = sc.car.TransformPoint(new Vector3(float.Parse(p[0]), float.Parse(p[1]), float.Parse(p[2]))); st.cams[1].transform.LookAt(sc.car.TransformPoint(new Vector3(float.Parse(p[3]), float.Parse(p[4]), float.Parse(p[5])))); }
