@@ -23,12 +23,12 @@ namespace KevinDriver
         public Vector3 touchNormalCar = new Vector3(-0.08f, 0.44f, -0.90f);
 
         [Header("Grasp tuning")]
-        public float gripAnchorOut = 0.015f;       // fitted by Editor GripFit (with a wrist-roll limit)
-        public float gripAnchorRear = -0.030f;
+        public float gripAnchorOut = 0.015f;       // fitted by Editor GripFit (wrap condition + wrist-roll limit)
+        public float gripAnchorRear = -0.015f;
         public float gripFingerTilt = 0.8f;
         public float gripRollDeg = 30f;
         public int gripMode = 1;                   // 0: fingers inward, palm to the front   1: fingers forward, palm toward the wheel centre
-        public float gripCurlScale = 1.0f;
+        public float gripCurlScale = 1.4f;
         public Vector3 gripCurl = new Vector3(38f, 48f, 32f);      // proximal / middle / distal curl (deg), stops at a natural closed grip
         public float thumbCurl = 25f;
         [Header("Jaw")]
@@ -305,6 +305,15 @@ namespace KevinDriver
             float cost = 2f * Sq(Vector3.Distance(Vector3.Lerp(hand.position, f[3].position, 0.5f), T) - 0.034f);
             foreach (int i in new[] { 1, 4, 7, 10 }) cost += Sq(Vector3.Distance(f[i].position, T) - 0.026f);
             foreach (int i in new[] { 2, 5, 8, 11 }) cost += 0.5f * Sq(Vector3.Distance(f[i].position, T) - 0.026f);
+            // wrap: the finger tips must sit on the far side of the rim tube from the palm (otherwise the hand just hovers over the rim)
+            Vector3 toPalm = (hand.position - T).normalized;
+            foreach (int i in new[] { 2, 5, 8, 11 })
+            {
+                float side = Vector3.Dot((f[i].position - T).normalized, toPalm);        // -1 = opposite the palm (wrapped)
+                cost += 0.003f * Sq(Mathf.Max(0f, side + 0.2f));
+            }
+            // fingers must also reach the tube, not stop short of it
+            foreach (int i in new[] { 2, 5, 8, 11 }) cost += 0.5f * Sq(Mathf.Max(0f, Vector3.Distance(f[i].position, T) - 0.03f));
             float tw = Mathf.Abs(left ? WristTwistL : WristTwistR);
             cost += 0.004f * Sq(Mathf.Max(0f, tw - 75f) / 45f);          // a real forearm cannot roll much beyond about 90 degrees
             return cost;

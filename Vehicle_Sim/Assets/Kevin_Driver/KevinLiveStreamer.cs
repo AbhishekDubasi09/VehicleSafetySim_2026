@@ -22,8 +22,8 @@ namespace KevinDriver
         public static event Action SessionEnded;
         public DriveScenario scenario;
         public Camera[] cams;
-        public int[] widths = { 960, 640, 512 };
-        public int[] heights = { 540, 360, 288 };
+        public int[] widths = { 1280, 854, 640 };
+        public int[] heights = { 720, 480, 360 };
         public int port = 5555;
         public int jpegQuality = 85;
         public int fps = 24;
