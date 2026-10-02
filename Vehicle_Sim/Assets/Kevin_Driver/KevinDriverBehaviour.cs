@@ -288,7 +288,8 @@ namespace KevinDriver
                 else
                 {
                     curl = joint == 0 ? gripCurl.x : joint == 1 ? gripCurl.y : gripCurl.z; curl *= gripAmt * gripCurlScale;
-                    if (finger == 0) curl *= idxCurl;
+                    if (finger == 0) curl *= idxCurl * 0.5f + (idxCurl < 1f ? 0f : 0.5f);      // index points, slightly bent
+                    else if (reaching) curl *= Mathf.Lerp(1f, 0.30f + 0.12f * finger, sBlend);   // other fingers relax into a loose, graded curl (not a fist)
                 }
                 fingers[i].localRotation = fingers[i].localRotation * Quaternion.AngleAxis(curl, fingerAxis);
             }
