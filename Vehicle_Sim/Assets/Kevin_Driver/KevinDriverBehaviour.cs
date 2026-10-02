@@ -28,8 +28,8 @@ namespace KevinDriver
         public float gripFingerTilt = 0.8f;
         public float gripRollDeg = 30f;
         public int gripMode = 1;                   // 0: fingers inward, palm to the front   1: fingers forward, palm toward the wheel centre
-        public float gripCurlScale = 1.4f;         // fitted (capped so the hand does not clench)
-        public Vector3 gripCurl = new Vector3(55f, 70f, 45f);      // proximal / middle / distal curl (deg)
+        public float gripCurlScale = 1.0f;
+        public Vector3 gripCurl = new Vector3(38f, 48f, 32f);      // proximal / middle / distal curl (deg), stops at a natural closed grip
         public float thumbCurl = 25f;
         [Header("Jaw")]
         public Vector3 jawAxis = new Vector3(0, 0, -1);        // found by a bone-axis test: opens the jaw, carries chin, beard, teeth and tongue

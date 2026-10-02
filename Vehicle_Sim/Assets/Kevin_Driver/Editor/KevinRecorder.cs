@@ -122,6 +122,7 @@ public static class KevinRecorder
         if (cp != null) { var p = cp.Split(','); st.cams[1].transform.position = sc.car.TransformPoint(new Vector3(float.Parse(p[0]), float.Parse(p[1]), float.Parse(p[2]))); st.cams[1].transform.LookAt(sc.car.TransformPoint(new Vector3(float.Parse(p[3]), float.Parse(p[4]), float.Parse(p[5])))); }
         sc.ResetScenario();
         float t = 0f; const float dt = 1f / 30f;
+        string hfov = Arg("-kdHandFov", null); if (hfov != null) st.cams[1].fieldOfView = float.Parse(hfov, System.Globalization.CultureInfo.InvariantCulture);
         foreach (var tsv in ts)
         {
             float target = float.Parse(tsv, System.Globalization.CultureInfo.InvariantCulture);
