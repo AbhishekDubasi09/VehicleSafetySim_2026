@@ -24,7 +24,7 @@ namespace KevinDriver
 
         [Header("Grasp tuning")]
         public float gripAnchorOut = 0.015f;       // fitted by Editor GripFit (wrap condition + wrist-roll limit)
-        public float gripAnchorRear = -0.015f;
+        public float gripAnchorRear = 0.008f;
         public float gripFingerTilt = 0.8f;
         public float gripRollDeg = 30f;
         public int gripMode = 1;                   // 0: fingers inward, palm to the front   1: fingers forward, palm toward the wheel centre
