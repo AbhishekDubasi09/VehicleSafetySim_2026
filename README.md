@@ -1,4 +1,4 @@
-# VehicleSafetySim 2026
+# VehicleSafetySim 2026: a VR Driving Simulator for AEB Pedestrian Conflicts
 
 A Unity/VR driving simulator for studying driver behavior in **Autonomous Emergency Braking (AEB) pedestrian-conflict scenarios**, modeled on Euro NCAP-style test protocols (CPNA, CPNCO, and related crossing-pedestrian scenarios). Drivers pilot an instrumented ego vehicle through proving-ground scenes while AI traffic, dynamic weather, and scripted pedestrian crossings create realistic hazard events; each run is logged to CSV for post-session analysis.
 
